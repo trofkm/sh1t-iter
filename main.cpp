@@ -35,10 +35,10 @@ void good_iterate(std::vector<std::fstream> &files) {
 int main() {
     std::vector<std::fstream> files;
     // try to move around empty file emplace_back
-    files.emplace_back(R"(F:\Code\FIles\files\empty.txt)");
-    files.emplace_back(R"(F:\Code\FIles\files\1.txt)");
-    files.emplace_back(R"(F:\Code\FIles\files\2.txt)");
-    files.emplace_back(R"(F:\Code\FIles\files\3.txt)");
+    files.emplace_back("empty.txt");
+    files.emplace_back("1.txt");
+    files.emplace_back("2.txt");
+    files.emplace_back("3.txt");
     good_iterate(files);
     return 0;
 }
