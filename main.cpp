@@ -13,9 +13,8 @@ void shit_iterate(std::vector<std::fstream> &files) {
             // do some shizzy stuff
         }
         file.close();
-        files.erase(std::ranges::find_if(files, [](const std::fstream &f) {
-            return f.eof();
-        }));
+        std::remove_if(files.begin(), files.end(), [](const std::fstream &f){return f.eof();});
+
     }
 }
 
@@ -25,7 +24,7 @@ int main() {
     files.emplace_back("F:\\Code\\FIles\\files\\1.txt");
     files.emplace_back("F:\\Code\\FIles\\files\\2.txt");
     files.emplace_back("F:\\Code\\FIles\\files\\3.txt");
-    files.emplace_back("F:\\Code\\FIles\\files\\empty.txt");
+//    files.emplace_back("F:\\Code\\FIles\\files\\empty.txt");
     shit_iterate(files);
     return 0;
 }
