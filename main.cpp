@@ -1,25 +1,23 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <ranges>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <ranges>
+#include <vector>
 
-void shit_iterate(std::vector<std::fstream>&files){
-    for(auto & file : files){
+void shit_iterate(std::vector<std::fstream> &files) {
+    for (auto &file: files) {
         std::string line;
         std::cout << "iterating over file " << std::endl;
-        while(std::getline(file, line)){
+        while (std::getline(file, line)) {
             std::cout << line << std::endl;
             // do some shizzy stuff
         }
         file.close();
-        files.erase(std::ranges::find_if(files, [](const std::fstream& f){
+        files.erase(std::ranges::find_if(files, [](const std::fstream &f) {
             return f.eof();
         }));
-
     }
 }
-
 
 
 int main() {
